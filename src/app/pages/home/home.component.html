@@ -1,0 +1,84 @@
+<section>
+    <div class="grid md:grid-cols-[70%_minmax(0,1fr)]">
+        <div>
+            <owl-carousel-o [options]="customMainSlider">
+                <ng-template carouselSlide><img src="/images/img1.avif" class="w-full h-[300px]" alt=""></ng-template>
+                <ng-template carouselSlide><img src="/images/img2.avif" class="w-full h-[300px]" alt=""></ng-template>
+                <ng-template carouselSlide><img src="/images/img3.avif" class="w-full h-[300px]" alt=""></ng-template>
+                <ng-template carouselSlide><img src="/images/img4.avif" class="w-full h-[300px]" alt=""></ng-template>
+                <ng-template carouselSlide><img src="/images/img5.avif" class="w-full h-[300px]" alt=""></ng-template>
+                <ng-template carouselSlide><img src="/images/img6.avif" class="w-full h-[300px]" alt=""></ng-template>
+
+            </owl-carousel-o>
+
+
+
+
+
+
+        </div>
+        <div>
+            <img src="/images/grocery-banner.png" class="w-full h-[150px]" alt="">
+            <img src="/images/grocery-banner-2.jpeg" class="w-full h-[150px]" alt="">
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="text-4xl text-green-600 text-center py-5">popular category</h2>
+    <owl-carousel-o [options]="customOptions">
+
+        @for (cat of categories; track cat._id) {
+        <ng-template carouselSlide>
+            <div>
+                <img [src]="cat.image" class="w-full h-[250px]" alt="">
+                <h3 class="text-green-600 text-center">{{cat.name}}</h3>
+            </div>
+        </ng-template>
+        }
+
+
+    </owl-carousel-o>
+</section>
+
+
+
+
+<section>
+    <h2 class="text-4xl text-green-600 text-center py-5">popular product</h2>
+
+    <input type="search" class="w-[50%] block mx-auto my-5 focus:text-green-700 border-green-600" [(ngModel)]="text"
+        placeholder="search by name...">
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+        @for (prod of products |search : text; track prod.id) {
+
+        <div class="border card border-green-700 rounded-md overflow-hidden shadow relative">
+            <div [routerLink]="['/details',prod.id]">
+                <div class="card-img">
+                    <img [src]="prod.imageCover" class="w-full h-[250px] object-contain" [alt]="prod.title"
+                        title="img" />
+                </div>
+                <div class="card-body px-2 py-4">
+                    <h4 class="text-green-500 text-xs">{{prod.category.name}}</h4>
+                    <h3 class="font-medium">{{prod.title.split(' ',2).join(" ")}}</h3>
+                    <div class="flex justify-between items-center">
+                        <span>{{prod.price}} EGP</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-300"></i>
+                            <span class="text-gray-500">{{prod.ratingsAverage}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 text-green-600 text-3xl" (click)="addToWishlist(prod.id)">
+                <i class="fa-solid fa-heart"></i>
+
+            </div>
+            <button (click)="addToCart(prod.id)"
+                class="bg-green-800 text-white card py-2 px-10 border rounded-sm w-[100%] mx-auto block">Add to
+                Cart</button>
+        </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,64 @@
+{
+    "navbar": {
+        "home": "الصفحة الرئيسية",
+        "products": "المنتجات",
+        "categories": "الفئات",
+        "brands": "العلامات التجارية",
+        "login": "تسجيل الدخول",
+        "register": "تسجيل حساب",
+        "logout": "تسجيل الخروج",
+        "lang": "اللغة"
+    },
+    "login": {
+        "loginNow": "تسجيل الدخول الآن",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "login": "تسجيل الدخول",
+        "forgotPassword": "هل نسيت كلمة المرور؟"
+    },
+    "register": {
+        "RegisterNow": "سجل الآن",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "rePassword": "إعادة كلمة المرور",
+        "phone": "الهاتف",
+        "signUP": "إنشاء حساب"
+    },
+    "forgot": {
+        "forgotPassword": "هل نسيت كلمة المرور؟",
+        "email": "البريد الإلكتروني",
+        "verifyEmail": "تحقق من البريد الإلكتروني",
+        "resetCode": "رمز إعادة تعيين",
+        "verifyCode": "تحقق من الرمز",
+        "password": "كلمة المرور",
+        "resetpassword": "إعادة تعيين كلمة المرور"
+    },
+    "cart": {
+        "shopCart": "سلة التسوق",
+        "clearCart": "إفراغ السلة",
+        "totalCartPrice": "إجمالي سعر السلة",
+        "remove": "إزالة",
+        "checkOutVisa": "الدفع عبر فيزا",
+        "checkOutCash": "الدفع نقدًا"
+    },
+    "checkoutVisa": {
+        "checkOut": "الدفع",
+        "details": "التفاصيل",
+        "phone": "الهاتف",
+        "city": "المدينة",
+        "onlinePayment": "الدفع الإلكتروني"
+    },
+    "checkoutCash": {
+        "checkOut": "الدفع",
+        "details": "التفاصيل",
+        "phone": "الهاتف",
+        "city": "المدينة",
+        "cashPayment": "الدفع نقدًا"
+    },
+    "wishlist": {
+        "wishlistProduct": "المنتج في قائمة الرغبات",
+        "remove": "إزالة",
+        "price": "السعر"
+    }
+}

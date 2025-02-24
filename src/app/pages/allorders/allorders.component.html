@@ -1,0 +1,29 @@
+<section>
+    <h2 class="text-4xl text-green-600 text-center py-5">Orders User</h2>
+
+    <div class="grid md:grid-cols-4 gap-4">
+        @for (item of userOrders; track $index) {
+
+        <div class="border card border-green-400/50 rounded-md overflow-hidden shadow relative">
+            <div>
+                <div class="card-img">
+                    <img [src]="item.cartItems[0].product.imageCover" class="w-full h-[250px] object-contain"
+                        [alt]="item.cartItems[0].price" title="img" />
+                </div>
+                <div class="card-body px-2 py-4">
+                    <h4 class="text-green-500 text-xs">{{item.isPaid}}</h4>
+                    <h3 class="font-medium">{{item.cartItems[0].count}}</h3>
+                    <div class="flex justify-between items-center">
+                        <span>{{item.cartItems[0].price}} EGP</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-300"></i>
+                            <span class="text-gray-500">{{item.totalOrderPrice}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+</section>

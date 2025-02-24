@@ -1,0 +1,27 @@
+<section class="my-4">
+    <h2 class="text-4xl text-green-600 text-center py-5">products</h2>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        @for (prod of products; track prod.id) {
+        <div class="border card border-green-400/50 rounded-md p-4 overflow-hidden relative ">
+            <div [routerLink]="['/product',prod.id]">
+                <div>
+                    <img [src]="prod.imageCover" class="w-full h-[250px] object-contain " title="img"
+                        [alt]="prod.title">
+                </div>
+                <div>
+                    <h2 class="text-3xl">title:{{prod.title.split(' ',2).join(' ')}}</h2>
+                    <h3 class="text-1xl text-gray-950">price:{{prod.price | currency:'GBP'}}</h3>
+                    <p class="text-gray-500 font-semibold">desc:{{prod.ratingsAverage}}</p>
+                    <span>count:{{prod.quantity}}</span>
+                </div>
+            </div>
+            <div class="p-4 text-green-600 text-3xl" (click)="addToWishlist(prod.id)">
+                <i class="fa-solid fa-heart"></i>
+
+            </div>
+            <button class="btn-main w-full" (click)="addToCart(prod.id)">Add to cart</button>
+        </div>
+        }
+    </div>
+</section>

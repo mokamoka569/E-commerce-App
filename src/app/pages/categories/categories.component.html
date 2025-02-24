@@ -1,0 +1,21 @@
+<section class="my-4">
+    <h2 class="text-4xl text-green-600 text-center py-5">categories</h2>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        @for (cat of categoryData; track cat._id) {
+        <div class="border card border-green-400/50 rounded-md p-4 overflow-hidden relative ">
+            <div [routerLink]="['/category',cat._id]">
+                <div>
+                    <img [src]="cat.image" class="w-full h-[250px] object-contain " title="img" [alt]="cat.name">
+                </div>
+                <div>
+                    <h2 class="text-3xl">title:{{cat.name}}</h2>
+                    <h3 class="text-1xl text-gray-950">slug:{{cat.slug}}</h3>
+
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+</section>

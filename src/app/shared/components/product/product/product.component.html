@@ -1,0 +1,34 @@
+<section>
+    <h2 class="text-4xl text-green-600 text-center py-5">Details product</h2>
+
+    <div class="grid md:grid-cols-[30%_minmax(0,1fr)] items-center">
+        <div>
+            <owl-carousel-o [options]="customOptions">
+
+                @for (img of specificProducts?.images; track $index) {
+
+                <ng-template carouselSlide>
+                    <div>
+                        <img [src]="img" class="w-[50%]" title="img">
+
+                    </div>
+                </ng-template>
+                }
+
+
+            </owl-carousel-o>
+        </div>
+        <div class="px-6">
+            <h2 class="text-3xl font-semibold capitalize">title:{{specificProducts?.title}}</h2>
+            <h3 class="text-2xl font-normal">price:{{specificProducts?.price | currency:'GBP'}}</h3>
+            <div class="flex items-center">
+                <i class="fas fa-star text-yellow-300"></i>
+
+                <span>{{specificProducts?.ratingsAverage}}</span>
+            </div>
+            <button (click)="addToCart(specificProducts?.id !)"
+                class="bg-green-600 text-white py-2 my-2 px-10 border rounded-sm w-full mx-auto block">Add to
+                Cart</button>
+        </div>
+    </div>
+</section>

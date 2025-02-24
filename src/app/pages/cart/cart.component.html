@@ -1,0 +1,40 @@
+@if(cartDetails.totalCartPrice){
+<section class="bg-gray-50 w-[75%] mx-auto rounded border shadow p-4">
+    <h1 class=" text-3xl text-green-600 text-center">{{'cart.shopCart'| translate}}</h1>
+    <button class="btn-main mx-2 " (click)="clearItem()">{{'cart.clearCart'| translate}}</button>
+    <span class="text-green-600">{{'cart.totalCartPrice'| translate}}: {{cartDetails.totalCartPrice |
+        currency:'GBP'}}</span>
+    @for (prod of cartDetails.products; track prod.product.id) {
+    <div class="grid md:grid-cols-[10%_minmax(0,1fr)] py-5 border-b mb-2">
+        <div>
+            <img title="img" [src]="prod.product.imageCover" class="w-full" [alt]="prod.product.title">
+        </div>
+        <div class="flex items-center justify-between px-3">
+            <div>
+                <h3>{{prod.product.title}}</h3>
+                <h4>price : {{prod.price | currency:'GBP'}}</h4>
+                <button class="text-green-600" (click)="removeItem(prod.product.id)"> <i
+                        class="fa-solid fa-trash-can"></i>{{'cart.remove'| translate}}</button>
+            </div>
+            <div class="flex items-center text-green-600 gap-3 text-3xl">
+                <button title="button" (click)="updateCount(prod.product.id,prod.count + 1)"><i
+                        class="fa-regular fa-square-plus"></i></button>
+                <span>{{prod.count}}</span>
+                <button title="button" (click)="updateCount(prod.product.id,prod.count - 1)"><i
+                        class="fa-regular fa-square-minus"></i></button>
+
+            </div>
+        </div>
+    </div>
+    }
+
+
+
+    <button class="btn-main" [routerLink]="['/checkout', cartDetails._id]">{{'cart.checkOutVisa'| translate}}</button>
+    <button class="btn-main" [routerLink]="['/checkcash', cartDetails._id]">{{'cart.checkOutCash'| translate}}</button>
+
+</section>
+}
+@else {
+<p class="btn-main text-center">Not Data found</p>
+}
